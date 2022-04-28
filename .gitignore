@@ -1,0 +1,10 @@
+.env
+.env_sample
+*.pyc
+pyvenv.cfg
+.DS_Store
+players.py
+
+old_scripts/
+test_env.ipynb
+.ipynb_checkpoints
