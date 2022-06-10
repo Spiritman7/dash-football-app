@@ -1,0 +1,748 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "ADLS to SQL 2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "delete from teams",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "team_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "team_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "team_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "team_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "league_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "league_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "league_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "league_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_scored_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_scored_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_scored_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_scored_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_scored_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_scored_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_conceded_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_conceded_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_conceded_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_conceded_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_conceded_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_conceded_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fixtures_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fixtures_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fixtures_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fixtures_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fixtures_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fixtures_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "form",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "form",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "wins_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "wins_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "wins_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "wins_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "wins_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "wins_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "draws_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "draws_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "draws_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "draws_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "draws_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "draws_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "loses_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "loses_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "loses_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "loses_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "loses_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "loses_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "clean_sheets_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "clean_sheets_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "clean_sheets_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "clean_sheets_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "clean_sheets_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "clean_sheets_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "penalty_scored",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "penalty_scored",
+									"type": "Single",
+									"physicalType": "real"
+								}
+							},
+							{
+								"source": {
+									"name": "penalty_scored_percentage",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "penalty_scored_percentage",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "penalty_missed",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "penalty_missed",
+									"type": "Single",
+									"physicalType": "real"
+								}
+							},
+							{
+								"source": {
+									"name": "penalty_missed_percentage",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "penalty_missed_percentage",
+									"type": "Single",
+									"physicalType": "real"
+								}
+							},
+							{
+								"source": {
+									"name": "failed_to_score_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "failed_to_score_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "failed_to_score_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "failed_to_score_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "failed_to_score_total",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "failed_to_score_total",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_0_15",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_0_15",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_16_30",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_16_30",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_31_45",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_31_45",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_46_60",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_46_60",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_61_75",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_61_75",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_76_90",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_76_90",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_91_105",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_91_105",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "yellow_card_106_120",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "yellow_card_106_120",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_0_15",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_0_15",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_16_30",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_16_30",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_31_45",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_31_45",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_46_60",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_46_60",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_61_75",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_61_75",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_76_90",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_76_90",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_91_105",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_91_105",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "red_card_106_120",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_card_106_120",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "biggest_win_streak_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "biggest_win_streak_home",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "biggest_win_streak_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "biggest_win_streak_away",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "biggest_lose_streak_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "biggest_lose_streak_home",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "biggest_lose_streak_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "biggest_lose_streak_away",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_scored_in_biggest_streak_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_scored_in_biggest_streak_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_scored_in_biggest_streak_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_scored_in_biggest_streak_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_conceded_in_biggest_streak_home",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_conceded_in_biggest_streak_home",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "goals_conceded_in_biggest_streak_away",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "goals_conceded_in_biggest_streak_away",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "teams_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "teams_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

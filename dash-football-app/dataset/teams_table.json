@@ -1,252 +1,248 @@
 {
-	"name": "teams_csv",
+	"name": "teams_table",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "InputBlob2",
+			"referenceName": "OutputSQL2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
-		"typeProperties": {
-			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "teams_2021-22_v1.csv",
-				"container": "landing-container-001"
-			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": true,
-			"quoteChar": "\""
-		},
+		"type": "AzureSqlTable",
 		"schema": [
 			{
 				"name": "team_name",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "team_id",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "league_name",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "league_id",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_scored_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_scored_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_scored_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_conceded_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_conceded_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_conceded_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "fixtures_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "fixtures_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "fixtures_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "form",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "wins_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "wins_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "wins_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "draws_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "draws_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "draws_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "loses_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "loses_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "loses_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "clean_sheets_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "clean_sheets_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "clean_sheets_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "penalty_scored",
-				"type": "String"
+				"type": "real",
+				"precision": 7
 			},
 			{
 				"name": "penalty_scored_percentage",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "penalty_missed",
-				"type": "String"
+				"type": "real",
+				"precision": 7
 			},
 			{
 				"name": "penalty_missed_percentage",
-				"type": "String"
+				"type": "real",
+				"precision": 7
 			},
 			{
 				"name": "failed_to_score_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "failed_to_score_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "failed_to_score_total",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_0_15",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_16_30",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_31_45",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_46_60",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_61_75",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_76_90",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_91_105",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "yellow_card_106_120",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_0_15",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_16_30",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_31_45",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_46_60",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_61_75",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_76_90",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_91_105",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "red_card_106_120",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "biggest_win_streak_home",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "biggest_win_streak_away",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "biggest_lose_streak_home",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "biggest_lose_streak_away",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "goals_scored_in_biggest_streak_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_scored_in_biggest_streak_away",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_conceded_in_biggest_streak_home",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "goals_conceded_in_biggest_streak_away",
-				"type": "String"
+				"type": "nvarchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "teams"
+		}
 	}
 }
